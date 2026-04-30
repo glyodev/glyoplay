@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GlyoPlay</title>
+  <link rel="icon" href="public/logo.png">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      background: #00000C;
+      background: radial-gradient(ellipse at center, #0a0a14 0%, #00000C 70%);
+      font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .logo {
+      max-width: 100px;
+      height: auto;
+      animation: fadeIn 1.2s ease-out;
+    }
+
+    .header-brand {
+      position: absolute;
+      top: 2rem;
+      left: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      animation: fadeIn 1.2s ease-out;
+    }
+
+    .brand-name {
+      font-size: 1.5rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      background: linear-gradient(135deg, #fff 0%, #a0a0b0 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .whatsapp-float {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      z-index: 100;
+    }
+
+    .whatsapp-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 56px;
+      height: 56px;
+      background: #25D366;
+      border-radius: 50%;
+      box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+
+    .whatsapp-btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 30px rgba(37, 211, 102, 0.6);
+    }
+
+    .whatsapp-btn svg {
+      width: 28px;
+      height: 28px;
+      fill: white;
+    }
+
+    .whatsapp-tooltip {
+      position: absolute;
+      bottom: 70px;
+      right: 0;
+      background: #1a1a2e;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 1rem;
+      width: 220px;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(10px);
+      transition: all 0.3s ease;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    }
+
+    .whatsapp-float:hover .whatsapp-tooltip {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .whatsapp-tooltip::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      right: 20px;
+      border-width: 8px 8px 0 8px;
+      border-style: solid;
+      border-color: #1a1a2e transparent transparent transparent;
+    }
+
+    .whatsapp-tooltip h4 {
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+      color: #25D366;
+    }
+
+    .whatsapp-tooltip p {
+      font-size: 0.8rem;
+      color: rgba(255, 255, 255, 0.7);
+      line-height: 1.4;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2.5rem;
+      animation: fadeIn 1.2s ease-out;
+    }
+
+    .icon-wrapper {
+      position: relative;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .icon-wrapper::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 140px;
+      height: 140px;
+      background: radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, transparent 70%);
+      border-radius: 50%;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    .tv-icon {
+      width: 100px;
+      height: 100px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .gear {
+      position: absolute;
+      bottom: -5px;
+      right: -10px;
+      width: 40px;
+      height: 40px;
+      animation: rotate 8s linear infinite;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 300;
+      letter-spacing: 0.5em;
+      text-transform: uppercase;
+      margin-left: 0.5em;
+      background: linear-gradient(135deg, #fff 0%, #a0a0b0 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .btn-download {
+      padding: 1rem 3rem;
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #fff;
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-download::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      z-index: -1;
+    }
+
+    .btn-download:hover {
+      border-color: transparent;
+      box-shadow: 0 0 30px rgba(99, 102, 241, 0.4);
+      transform: translateY(-2px);
+    }
+
+    .btn-download:hover::before {
+      opacity: 1;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.5;
+      }
+      50% {
+        transform: translate(-50%, -50%) scale(1.2);
+        opacity: 0.3;
+      }
+    }
+
+    @keyframes rotate {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 1.5rem;
+        letter-spacing: 0.3em;
+      }
+      
+      .tv-icon {
+        width: 80px;
+        height: 80px;
+      }
+      
+      .gear {
+        width: 30px;
+        height: 30px;
+      }
+
+      .logo {
+        max-width: 70px;
+      }
+
+      .header-brand {
+        top: 1rem;
+        left: 1rem;
+        gap: 0.5rem;
+      }
+
+      .brand-name {
+        font-size: 1rem;
+      }
+
+      .whatsapp-btn {
+        width: 48px;
+        height: 48px;
+      }
+
+      .whatsapp-btn svg {
+        width: 24px;
+        height: 24px;
+      }
+
+      .whatsapp-tooltip {
+        width: 180px;
+        bottom: 60px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="header-brand">
+    <img src="./public/logo.png" alt="GlyoPlay" class="logo">
+    <span class="brand-name">GlyoPlay</span>
+  </div>
+
+  <div class="whatsapp-float">
+    <div class="whatsapp-tooltip">
+      <h4>¿Necesitas ayuda?</h4>
+      <p>Hola, quiero más información sobre GlyoPlay</p>
+    </div>
+    <a href="https://wa.me/59178767896?text=Hola,%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20GlyoPlay" target="_blank" class="whatsapp-btn">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path id="Icon_awesome-phone-alt" data-name="Icon awesome-phone-alt" d="M22.517,16.379l-5.07-2.173a1.086,1.086,0,0,0-1.268.312l-2.245,2.743A16.78,16.78,0,0,1,5.912,9.24L8.656,6.995a1.084,1.084,0,0,0,.312-1.268L6.795.657A1.094,1.094,0,0,0,5.55.028L.842,1.114A1.086,1.086,0,0,0,0,2.173,21,21,0,0,0,21.005,23.178a1.086,1.086,0,0,0,1.059-.842l1.086-4.708a1.1,1.1,0,0,0-.634-1.249Z" transform="translate(0 0)" fill="#fff"/>
+      </svg>
+    </a>
+  </div>
+
+  <div class="container">
+    <div class="icon-wrapper">
+      <svg class="tv-icon" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="10" y="20" width="80" height="55" rx="5" stroke="white" stroke-width="2" fill="none"/>
+        <rect x="20" y="30" width="60" height="35" rx="2" stroke="white" stroke-width="1.5" fill="none"/>
+        <line x1="35" y1="75" x2="65" y2="75" stroke="white" stroke-width="3" stroke-linecap="round"/>
+        <line x1="45" y1="70" x2="45" y2="80" stroke="white" stroke-width="2" stroke-linecap="round"/>
+        <path d="M15 25 L25 35 M85 25 L75 35" stroke="white" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+      <svg class="gear" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="20" cy="20" r="8" stroke="#6366f1" stroke-width="2" fill="none"/>
+        <path d="M20 8 L20 12 M20 28 L20 32 M8 20 L12 20 M28 20 L32 20 M11.5 11.5 L14.3 14.3 M25.7 25.7 L28.5 28.5 M11.5 28.5 L14.3 25.7 M25.7 14.3 L28.5 11.5" stroke="#6366f1" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </div>
+    
+    <h1>Próximamente</h1>
+    
+    <a href="./public/app.apk" class="btn-download" download>
+      Descargar App
+    </a>
+  </div>
+</body>
+</html>
