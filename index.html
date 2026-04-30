@@ -139,8 +139,12 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      justify-content: center;
       gap: 2.5rem;
       animation: fadeIn 1.2s ease-out;
+      width: 100%;
+      max-width: 100%;
+      padding: 0 1rem;
     }
 
     .icon-wrapper {
@@ -278,83 +282,210 @@
 
     @media (max-width: 480px) {
       body {
-        padding: 1rem;
+        padding: 0.75rem;
       }
 
       h1 {
-        font-size: 1.4rem;
-        letter-spacing: 0.25em;
+        font-size: 1.3rem;
+        letter-spacing: 0.2em;
         text-align: center;
+        margin-left: 0;
       }
 
       .tv-icon {
-        width: 70px;
-        height: 70px;
+        width: 60px;
+        height: 60px;
       }
 
       .gear {
-        width: 28px;
-        height: 28px;
-        bottom: -3px;
-        right: -5px;
+        width: 24px;
+        height: 24px;
+        bottom: -2px;
+        right: -4px;
       }
 
       .icon-wrapper::before {
-        width: 100px;
-        height: 100px;
+        width: 90px;
+        height: 90px;
       }
 
       .container {
-        gap: 1.5rem;
+        gap: 1.25rem;
+        width: 100%;
+        max-width: 100%;
+        padding: 0 0.5rem;
       }
 
       .btn-download {
-        padding: 0.875rem 2rem;
-        font-size: 0.8rem;
+        padding: 0.75rem 1.5rem;
+        font-size: 0.75rem;
+        width: 100%;
+        max-width: 200px;
       }
 
       .logo {
-        max-width: 50px;
+        max-width: 40px;
       }
 
       .header-brand {
-        top: 1rem;
-        left: 1rem;
-        gap: 0.5rem;
+        top: 0.75rem;
+        left: 0.75rem;
+        gap: 0.4rem;
       }
 
       .brand-name {
-        font-size: 1.1rem;
+        font-size: 1rem;
       }
 
       .whatsapp-float {
-        bottom: 1.5rem;
-        right: 1.5rem;
+        bottom: 1rem;
+        right: 1rem;
       }
 
       .whatsapp-btn {
-        width: 52px;
-        height: 52px;
+        width: 48px;
+        height: 48px;
       }
 
       .whatsapp-btn svg {
-        width: 26px;
-        height: 26px;
+        width: 22px;
+        height: 22px;
       }
 
       .whatsapp-tooltip {
-        width: 200px;
-        bottom: 65px;
+        width: 160px;
+        bottom: 58px;
         right: 0;
-        padding: 0.875rem;
+        padding: 0.75rem;
       }
 
       .whatsapp-tooltip h4 {
-        font-size: 0.85rem;
+        font-size: 0.8rem;
       }
 
       .whatsapp-tooltip p {
+        font-size: 0.7rem;
+      }
+    }
+
+    @media (max-width: 320px) {
+      h1 {
+        font-size: 1.1rem;
+        letter-spacing: 0.15em;
+      }
+
+      .tv-icon {
+        width: 50px;
+        height: 50px;
+      }
+
+      .gear {
+        width: 20px;
+        height: 20px;
+      }
+
+      .icon-wrapper::before {
+        width: 75px;
+        height: 75px;
+      }
+
+      .btn-download {
+        padding: 0.625rem 1.25rem;
+        font-size: 0.7rem;
+      }
+
+      .logo {
+        max-width: 35px;
+      }
+
+      .brand-name {
+        font-size: 0.9rem;
+      }
+
+      .whatsapp-tooltip {
+        width: 140px;
+        bottom: 55px;
+      }
+    }
+
+    @media (max-width: 260px) {
+      body {
+        padding: 0.5rem;
+      }
+
+      h1 {
+        font-size: 0.95rem;
+        letter-spacing: 0.1em;
+      }
+
+      .tv-icon {
+        width: 45px;
+        height: 45px;
+      }
+
+      .gear {
+        width: 18px;
+        height: 18px;
+        bottom: -1px;
+        right: -2px;
+      }
+
+      .icon-wrapper::before {
+        width: 65px;
+        height: 65px;
+      }
+
+      .container {
+        gap: 1rem;
+      }
+
+      .btn-download {
+        padding: 0.5rem 1rem;
+        font-size: 0.65rem;
+        max-width: 160px;
+      }
+
+      .logo {
+        max-width: 30px;
+      }
+
+      .header-brand {
+        top: 0.5rem;
+        left: 0.5rem;
+        gap: 0.3rem;
+      }
+
+      .brand-name {
+        font-size: 0.8rem;
+      }
+
+      .whatsapp-float {
+        bottom: 0.75rem;
+        right: 0.75rem;
+      }
+
+      .whatsapp-btn {
+        width: 42px;
+        height: 42px;
+      }
+
+      .whatsapp-btn svg {
+        width: 20px;
+        height: 20px;
+      }
+
+      .whatsapp-tooltip {
+        width: 130px;
+        bottom: 50px;
+        padding: 0.5rem;
+      }
+
+      .whatsapp-tooltip h4 {
         font-size: 0.75rem;
+      }
+
+      .whatsapp-tooltip p {
+        font-size: 0.65rem;
       }
     }
   </style>
