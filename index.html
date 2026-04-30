@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -97,6 +98,12 @@
       transform: translateY(10px);
       transition: all 0.3s ease;
       box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    }
+
+    .whatsapp-tooltip.show {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
     }
 
     .whatsapp-float:hover .whatsapp-tooltip {
@@ -226,6 +233,7 @@
         opacity: 0;
         transform: translateY(20px);
       }
+
       to {
         opacity: 1;
         transform: translateY(0);
@@ -233,19 +241,25 @@
     }
 
     @keyframes float {
-      0%, 100% {
+
+      0%,
+      100% {
         transform: translateY(0);
       }
+
       50% {
         transform: translateY(-10px);
       }
     }
 
     @keyframes pulse {
-      0%, 100% {
+
+      0%,
+      100% {
         transform: translate(-50%, -50%) scale(1);
         opacity: 0.5;
       }
+
       50% {
         transform: translate(-50%, -50%) scale(1.2);
         opacity: 0.3;
@@ -256,29 +270,51 @@
       from {
         transform: rotate(0deg);
       }
+
       to {
         transform: rotate(360deg);
       }
     }
 
     @media (max-width: 480px) {
+      body {
+        padding: 1rem;
+      }
+
       h1 {
-        font-size: 1.5rem;
-        letter-spacing: 0.3em;
+        font-size: 1.4rem;
+        letter-spacing: 0.25em;
+        text-align: center;
       }
-      
+
       .tv-icon {
-        width: 80px;
-        height: 80px;
+        width: 70px;
+        height: 70px;
       }
-      
+
       .gear {
-        width: 30px;
-        height: 30px;
+        width: 28px;
+        height: 28px;
+        bottom: -3px;
+        right: -5px;
+      }
+
+      .icon-wrapper::before {
+        width: 100px;
+        height: 100px;
+      }
+
+      .container {
+        gap: 1.5rem;
+      }
+
+      .btn-download {
+        padding: 0.875rem 2rem;
+        font-size: 0.8rem;
       }
 
       .logo {
-        max-width: 70px;
+        max-width: 50px;
       }
 
       .header-brand {
@@ -288,26 +324,42 @@
       }
 
       .brand-name {
-        font-size: 1rem;
+        font-size: 1.1rem;
+      }
+
+      .whatsapp-float {
+        bottom: 1.5rem;
+        right: 1.5rem;
       }
 
       .whatsapp-btn {
-        width: 48px;
-        height: 48px;
+        width: 52px;
+        height: 52px;
       }
 
       .whatsapp-btn svg {
-        width: 24px;
-        height: 24px;
+        width: 26px;
+        height: 26px;
       }
 
       .whatsapp-tooltip {
-        width: 180px;
-        bottom: 60px;
+        width: 200px;
+        bottom: 65px;
+        right: 0;
+        padding: 0.875rem;
+      }
+
+      .whatsapp-tooltip h4 {
+        font-size: 0.85rem;
+      }
+
+      .whatsapp-tooltip p {
+        font-size: 0.75rem;
       }
     }
   </style>
 </head>
+
 <body>
   <div class="header-brand">
     <img src="./public/logo.png" alt="GlyoPlay" class="logo">
@@ -319,33 +371,54 @@
       <h4>¿Necesitas ayuda?</h4>
       <p>Hola, quiero más información sobre GlyoPlay</p>
     </div>
-    <a href="https://wa.me/59178767896?text=Hola,%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20GlyoPlay" target="_blank" class="whatsapp-btn">
+    <a href="https://wa.me/59176787696?text=Hola,%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20GlyoPlay"
+      target="_blank" class="whatsapp-btn">
       <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path id="Icon_awesome-phone-alt" data-name="Icon awesome-phone-alt" d="M22.517,16.379l-5.07-2.173a1.086,1.086,0,0,0-1.268.312l-2.245,2.743A16.78,16.78,0,0,1,5.912,9.24L8.656,6.995a1.084,1.084,0,0,0,.312-1.268L6.795.657A1.094,1.094,0,0,0,5.55.028L.842,1.114A1.086,1.086,0,0,0,0,2.173,21,21,0,0,0,21.005,23.178a1.086,1.086,0,0,0,1.059-.842l1.086-4.708a1.1,1.1,0,0,0-.634-1.249Z" transform="translate(0 0)" fill="#fff"/>
+        <path id="Icon_awesome-phone-alt" data-name="Icon awesome-phone-alt"
+          d="M22.517,16.379l-5.07-2.173a1.086,1.086,0,0,0-1.268.312l-2.245,2.743A16.78,16.78,0,0,1,5.912,9.24L8.656,6.995a1.084,1.084,0,0,0,.312-1.268L6.795.657A1.094,1.094,0,0,0,5.55.028L.842,1.114A1.086,1.086,0,0,0,0,2.173,21,21,0,0,0,21.005,23.178a1.086,1.086,0,0,0,1.059-.842l1.086-4.708a1.1,1.1,0,0,0-.634-1.249Z"
+          transform="translate(0 0)" fill="#fff" />
       </svg>
     </a>
   </div>
 
   <div class="container">
     <div class="icon-wrapper">
-      <svg class="tv-icon" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect x="10" y="20" width="80" height="55" rx="5" stroke="white" stroke-width="2" fill="none"/>
-        <rect x="20" y="30" width="60" height="35" rx="2" stroke="white" stroke-width="1.5" fill="none"/>
-        <line x1="35" y1="75" x2="65" y2="75" stroke="white" stroke-width="3" stroke-linecap="round"/>
-        <line x1="45" y1="70" x2="45" y2="80" stroke="white" stroke-width="2" stroke-linecap="round"/>
-        <path d="M15 25 L25 35 M85 25 L75 35" stroke="white" stroke-width="2" stroke-linecap="round"/>
+      <svg class="tv-icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
+        id="Layer_1" x="0px" y="0px" viewBox="0 0 48 48" enable-background="new 0 0 48 48" xml:space="preserve"
+        preserveAspectRatio="xMidYMid meet"
+        style="width: 100px; height: 100px; transform-origin: 50% 50%; transform: scaleX(1) scaleY(1) rotate(0deg);">
+        <path fill-rule="evenodd" clip-rule="evenodd"
+          d="M46,37H2c-0.553,0-1-0.447-1-1V8c0-0.552,0.447-1,1-1h44c0.553,0,1,0.448,1,1v28  C47,36.553,46.553,37,46,37z M45,9H3v26h42V9z M21,16c0.214,0,0.4,0.082,0.563,0.196l7.771,4.872C29.72,21.205,30,21.566,30,22  c0,0.325-0.165,0.601-0.405,0.783l-7.974,4.981C21.449,27.904,21.238,28,21,28c-0.553,0-1-0.447-1-1V17C20,16.448,20.447,16,21,16z   M15,39h18c0.553,0,1,0.447,1,1s-0.447,1-1,1H15c-0.553,0-1-0.447-1-1S14.447,39,15,39z"
+          fill="#FFFFFF" style="fill:#FFFFFF;stroke:none" stroke="none" class="" />
       </svg>
       <svg class="gear" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="20" cy="20" r="8" stroke="#6366f1" stroke-width="2" fill="none"/>
-        <path d="M20 8 L20 12 M20 28 L20 32 M8 20 L12 20 M28 20 L32 20 M11.5 11.5 L14.3 14.3 M25.7 25.7 L28.5 28.5 M11.5 28.5 L14.3 25.7 M25.7 14.3 L28.5 11.5" stroke="#6366f1" stroke-width="2" stroke-linecap="round"/>
+        <circle cx="20" cy="20" r="8" stroke="#6366f1" stroke-width="2" fill="none" />
+        <path
+          d="M20 8 L20 12 M20 28 L20 32 M8 20 L12 20 M28 20 L32 20 M11.5 11.5 L14.3 14.3 M25.7 25.7 L28.5 28.5 M11.5 28.5 L14.3 25.7 M25.7 14.3 L28.5 11.5"
+          stroke="#6366f1" stroke-width="2" stroke-linecap="round" />
       </svg>
     </div>
-    
+
     <h1>Próximamente</h1>
-    
+
     <a href="./public/app.apk" class="btn-download" download>
       Descargar App
     </a>
   </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const tooltip = document.querySelector('.whatsapp-tooltip');
+
+      setTimeout(() => {
+        tooltip.classList.add('show');
+      }, 500);
+
+      setTimeout(() => {
+        tooltip.classList.remove('show');
+      }, 10500);
+    });
+  </script>
 </body>
+
 </html>
